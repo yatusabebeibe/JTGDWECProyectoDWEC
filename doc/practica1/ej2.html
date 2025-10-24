@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P1 Ej2</title>
+</head>
+<body>
+    <script>
+        let entrada = parseInt(prompt("Introduce numeros enteros"));
+        let maximo, minimo, contador=0, total=0;
+
+        while (entrada != 0) {
+            if (isNaN(entrada)) {
+                entrada = "";
+                alert("No has introducido un numero")
+            } else {
+                entrada = parseInt(entrada);
+
+                ++contador;
+
+                if (typeof(maximo)=="undefined") {
+                    maximo = entrada;
+                    minimo = entrada;
+                }
+                
+                if (entrada>maximo) maximo=entrada;
+                if (entrada<minimo) minimo=entrada;
+
+                total += entrada;
+
+                console.log(maximo," ",minimo);
+            }
+            entrada = parseInt(prompt("Introduce numeros enteros"));
+        }
+        if (typeof(maximo)=="undefined") {
+            console.log("No se ha intoducido ningun numero");
+        } else {
+            console.info("contador: ",contador,"  total: ",total)
+            console.log("maximo: ",maximo,"  minimo:",minimo,"  media:",total/contador);
+        }
+    </script>
+</body>
+</html>

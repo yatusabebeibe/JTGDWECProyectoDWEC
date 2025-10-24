@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JTG - P1 Ej7</title>
+    <style>
+        table {
+            width: 90%;
+            table-layout: fixed;
+            border-collapse: collapse;
+            margin: 0 auto;
+        }
+        table, td, tr {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        let tabla = document.createElement("table");
+        let num, fila, celdaNum, celdaChar;
+
+        for (let i = 0; i < 1000; i++) {
+            fila = document.createElement("tr");
+            for (let j = 0; j < 10; j++) {
+                celdaNum = document.createElement("td");
+                celdaChar = document.createElement("td");
+
+                num = i*10 + j;
+
+                celdaNum.textContent = num;
+                // celdaNum.textContent = num.toString(16).toUpperCase();
+                celdaNum.style.backgroundColor = "lightgrey";
+                celdaChar.textContent = String.fromCharCode(num);
+
+                
+                fila.appendChild(celdaNum);
+                fila.appendChild(celdaChar);
+            }
+            tabla.appendChild(fila);
+        }
+        document.body.appendChild(tabla);
+    </script>
+</body>
+</html>

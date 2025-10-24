@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P2 Ej4</title>
+</head>
+<body>
+    <script>
+        let nElementos;
+        
+        do {
+            nElementos = parseInt(prompt("Introduce el nº de elementos",10000));
+        } while (isNaN(nElementos));
+        
+        console.log(bucleRandom(nElementos));
+        
+        
+        function bucleRandom(nElementos) {
+            const mapa = new Map();
+
+            for (let i = 0; i < nElementos; i++)
+            {
+                let nAleatorio = parseInt(Math.random()*10 +1);
+
+                if (!mapa.has(nAleatorio)) {
+                    mapa.set(nAleatorio,1);
+                } else {
+                    mapa.set(nAleatorio, mapa.get(nAleatorio) +1);
+                }
+            }
+            return mapa;
+        }
+    </script>
+</body>
+</html>

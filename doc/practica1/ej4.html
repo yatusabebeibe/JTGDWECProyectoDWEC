@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P1 Ej4</title>
+</head>
+<body>
+    <script>
+        let entrada1 = parseInt(prompt("Introduce un numero"));
+        let entrada2 = parseInt(prompt("Introduce otro numero"));
+
+        let mayor = Math.max(entrada1,entrada2),
+            menor = Math.min(entrada1,entrada2);
+        
+        let totalPares = 0,
+            totalImpares = 0;
+
+        for (let i = menor+1; i < mayor; i++) {
+            if (i % 2 == 0) {
+                totalPares += i;
+            } else {
+                totalImpares += i;
+            }
+        }
+
+        document.writeln("Total suma Pares: ",totalPares,'<br>')
+        document.writeln("Total suma Inpares: ",totalImpares,'<br>')
+    </script>
+</body>
+</html>

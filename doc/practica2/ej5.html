@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P2 Ej5</title>
+</head>
+<body>
+    <script>
+        const mCoches = new Map([
+            ["1111BCD", "Seat"],
+            ["2222DEF", "Audi"],
+            ["3333FGH", "Mercedes"],
+            ["4444HIJ", "Seat"],
+            ["5555JKL", "Mercedes"],
+            ["6666LMN", "Seat"]
+        ]);
+
+        console.log(mCoches);
+        console.log(mCoches.get("5555JKL"));
+        
+        console.log(invertirMapa(mCoches));
+
+
+
+        function invertirMapa(mapaOriginal) {
+            const mapaInvertido = new Map();
+
+            for (const element of mapaOriginal)
+            {
+                console.log(element);
+                
+                if (!mapaInvertido.has(element[1])) {
+                    mapaInvertido.set(element[1],new Array(element[0]));
+                } else {
+                    mapaInvertido.get(element[1]).push(element[0]);
+                }
+            }
+            return mapaInvertido;
+        }
+    </script>
+</body>
+</html>

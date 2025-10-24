@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JTG - P1 Ej6</title>
+</head>
+<body>
+    <script>
+        let volverAJugar;
+        do {
+            let nAleatorio = parseInt(Math.random() * 100 + 1);
+            console.log("nAleatorio", nAleatorio);
+
+            let nIntentos = 5;
+            let nIntentosActuales = nIntentos;
+            let guess;
+            let adivinado = false;
+            let juegoCancelado = false;
+
+            while (!adivinado && !juegoCancelado && nIntentosActuales > 0) {
+                guess = prompt(`Introduce un numero, quedan ${nIntentosActuales} intentos`);
+                
+                if (guess==null) juegoCancelado = true;
+                
+                while (isNaN(parseInt(guess)) && !juegoCancelado) {
+                    alert("ERROR. No ha introducido un numero.");
+                    guess = prompt(`Introduce un numero, quedan ${nIntentosActuales} intentos`);
+                    if (guess == null) juegoCancelado = true;
+                }
+
+                if (!juegoCancelado) {
+                    nIntentosActuales--;
+                    if (guess == nAleatorio) {
+                        alert(`🎉 Has acertado con ${nIntentosActuales} intentos restantes 🎉`);
+                        adivinado = true;
+                    } else {
+                        alert(`El numero introducido es ${guess> nAleatorio ? "MAYOR" : "MENOR"} al buscado`)
+                    }
+                }
+            }
+
+            document.writeln(`Juego terminado: ${juegoCancelado?"Si":"No"}<br>`);
+            document.writeln(`Número de intentos: ${nIntentos-nIntentosActuales}<br>`);
+            document.writeln(`Número acertado: ${adivinado?"Si":"No"}<br>`);
+            document.writeln(`<br>`);
+
+            volverAJugar = juegoCancelado? false : confirm("¿Quieres volver a jugar?");
+        } while (volverAJugar);
+    </script>
+</body>
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P2 Ej1</title>
+</head>
+<body>
+    <script>
+        function menu() {
+            let eleccion;
+            do {
+                eleccion = prompt(
+                    "Introduce una de estas letras:\n"+
+                    "a. Ver primera palabra insertada\n"+
+                    "b. Ver ultima palabra insertada\n"+
+                    "c. Ver todas las palabras\n"+
+                    "d. Ver la palabra mas larga\n"+
+                    "e. Ver la palabra más corta\n"+
+                    "f. Numero de palabras insertadas\n"+
+                    "g. Buscar una palabra\n"+
+                    "h. Borrar duplicados\n"+
+                    "i. Salir"
+                );
+            } while (!eleccion || !/^[a-iA-I]$/.test(eleccion));
+            return eleccion.toLowerCase();
+        }
+
+        const lista =new Array();
+
+        let palabra= prompt("introduce una palabra");
+        while (palabra != null) {
+            palabra.length > 0? lista.push(palabra): null;
+            palabra = prompt("introduce una palabra");
+        }
+
+        let opcionMenu = menu();
+        while (opcionMenu!="i") {
+            switch (opcionMenu) {
+                case "a":
+                    console.log("a: ",lista[0]);
+                    break;
+                case "b":
+                    console.log("b: ",lista[lista.length-1]);
+                    break;
+                case "c":
+                    console.log("c: ",lista);
+                    break;
+                case "d":
+                    let larga = [...lista];
+                    larga.sort((a,b) => a.length - b.length);
+                    console.log("d: ",larga);
+                    break;
+                case "e":
+                    let corta = [...lista];
+                    corta.sort((a,b) => b.length - a.length);
+                    console.log("e: ",corta);
+                    break;
+                case "f":
+                    console.log("f: ",lista.length);
+                    break;
+                case "g":
+                    let palabraABuscar = prompt("Introduce la palabra a buscar");
+                    if (palabraABuscar) {
+                        let encontrada = false;
+                        lista.forEach(e => {
+                             if (e == palabraABuscar) encontrada=true;
+                        });
+                        console.log("g: ",
+                            encontrada?
+                            "Palabra encontrada":
+                            "Palabra NO encontrada"
+                        );
+                    }
+                    break;
+                case "h":
+                    for (let i = 0; i < lista.length; i++) {
+                        if (lista.indexOf(lista[i]) != i) {
+                            lista.splice(i,1);
+                            i--;
+                        }
+                    }
+                    console.log("h: ",lista);
+                    break;
+            }
+            opcionMenu = menu();
+        }
+    </script>
+</body>
+</html>

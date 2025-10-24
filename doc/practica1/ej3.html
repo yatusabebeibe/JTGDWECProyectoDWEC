@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P1 Ej3</title>
+</head>
+<body>
+    <script>
+        let entrada1 = parseInt(prompt("Introduce un numero"));
+        let entrada2 = parseInt(prompt("Introduce otro numero"));
+
+        let mayor = Math.max(entrada1,entrada2),
+            menor = Math.min(entrada1,entrada2);
+
+        if (menor % 2 != 0) menor++;
+
+        for (let i = menor; i < mayor; i+=2) {
+            document.writeln(i,"<br>");
+        }
+    </script>
+</body>
+</html>

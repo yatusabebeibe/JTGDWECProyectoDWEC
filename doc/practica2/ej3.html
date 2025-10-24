@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P2 Ej3</title>
+</head>
+<body>
+    <script>
+        let palabra;
+        const lista = new Array()
+
+        do {
+            palabra = prompt("Introduce una palabra");
+            lista.push(palabra);
+        } while (palabra!=null);
+        lista.pop();
+        
+        console.log(mapaPalabras(lista));
+        
+        console.log(lista);
+        
+
+        function mapaPalabras(listaPalabras) {
+            const mapa = new Map();
+            for (const element of listaPalabras)
+            {
+                if (!mapa.has(element)) {
+                    mapa.set(element,1);
+                } else {
+                    mapa.set(element, mapa.get(element) +1);
+                }
+            }
+            return mapa;
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P1 Ej5</title>
+</head>
+<body>
+    <script>
+        let entrada = prompt("Introduce un dato");
+
+        let texto = "", numero = 0;
+
+        while (entrada != null) {
+            if (isNaN(parseInt(entrada)))
+                texto += entrada;
+            else
+                numero += parseInt(entrada);
+            
+            entrada = prompt("Introduce un dato");
+        }
+
+        document.writeln(`texto: ${texto} <br>numero: ${numero}`)
+    </script>
+</body>
+</html>

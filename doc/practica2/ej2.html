@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P2 Ej2</title>
+</head>
+<body>
+    <script>
+        let nElementosFibonacci;
+
+        do {
+            nElementosFibonacci = parseInt(prompt());
+        } while (isNaN(nElementosFibonacci));
+        
+        console.log(serieFibonacciRecursiva(nElementosFibonacci));
+        console.log(serieFibonacciIterativa(nElementosFibonacci));
+        
+        
+        function serieFibonacciRecursiva (numeroElementos) {
+            if (numeroElementos <=  0) return 0;
+            if (numeroElementos === 1) return 1;
+            return serieFibonacciRecursiva(numeroElementos - 1) +
+                   serieFibonacciRecursiva(numeroElementos - 2)
+            ;
+        }
+        function serieFibonacciIterativa(numeroElementos) {
+            let nAnterior = 0n,
+                nActual = 1n,
+                temporal
+            ;
+            for (let i = 0; i < numeroElementos; i++) {
+                temporal = nActual;
+                nActual += nAnterior;
+                nAnterior = temporal;
+            }
+            return nAnterior;
+        }
+    </script>
+</body>
+</html>

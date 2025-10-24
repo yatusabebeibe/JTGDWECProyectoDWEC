@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JTG - P1 Ej1</title>
+</head>
+<body>
+    <script>
+        let entrada = prompt("Introduce un numero");
+        let numero = parseInt(entrada);
+        
+        if (isNaN(numero)) {
+            document.writeln("No es un numero")
+        } else {
+            document.writeln("Es un numero<br>")
+
+            if (entrada%2==0) document.writeln("Es Par<br>")
+            else document.writeln("Es Impar<br>")
+
+            let esPrimo = true;
+            if (numero < 2) esPrimo = false;
+            for (let i = 2;esPrimo && i <= numero/2 +1; i++) {
+                console.log(i);
+                if (numero % i == 0) esPrimo = false;
+            }
+
+            if (esPrimo) {
+                document.writeln("Es Primo<br>")
+            } else {
+                document.writeln("No es Primo<br>")
+            }
+        }
+    </script>
+</body>
+</html>
