@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>
+            <!-- onclick="alert('hola desde html')" -->
+            <button >Click</button>
+        </p>
+    </div>
+    <script>let boton = document.getElementsByTagName("button")[0];</script>
+    <!-- <script>
+        // eventos
+        let boton = document.getElementsByTagName("button")[0];
+        boton.onclick=function(){
+            alert("hola desde la propiedad onclick del elemento.");
+        }
+        function saludo() {
+            alert("hola desde event listener saludo.");
+            boton.removeEventListener("click", saludo);
+        }
+        boton.addEventListener("click", saludo);
+        boton.addEventListener("click", () => {
+            alert("hola desde OTRO event listener.");
+        });
+    </script> -->
+    <script>
+        // propagacion de eventos
+        boton.addEventListener("click", (ev) => {
+            alert("soy el boton");
+            ev.stopPropagation();
+            // ev.stopImmediatePropagation();
+            let ev1 = new Event("click");
+            document.getElementsByTagName("div")[0].dispatchEvent(ev1)
+        });
+        document.getElementsByTagName("p")[0].addEventListener("click", () => {
+            alert("soy el p")
+        });
+        document.getElementsByTagName("div")[0].addEventListener("click", () => {
+            alert("soy el div")
+        });
+        boton.addEventListener("contextmenu", (ev) => {
+            ev.preventDefault()
+            // alert("brrr")
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        document.getElementsByTagName("p")[0].textContent = "<strong>brrrr</strong>" // Mas usado
+        document.getElementsByTagName("p")[0].innerHTML = "<strong>brrrr</strong>" // Mas usado
+        // document.getElementsByTagName("p")[0].outerText = "<strong>brrrr</strong>"
+        document.getElementsByTagName("p")[0].outerHTML = "<strong>brrrr</strong>"
+
+        console.log(document.childNodes[1].childNodes[0]);
+        console.log(document.childNodes[1].childNodes[]);
+        
+    </script>
+    <h1>Practica <strong>inicial</strong></h1>
+    <!-- Esto es un comentario -->
+    <p>xD</p>
+</body>
+</html>
