@@ -1,0 +1,89 @@
+<!DOCTYPE HTML>
+<html>
+<style>
+    * {font-family: sans-serif; font-size: 20px;}
+    .caja {
+        width: 200px; 
+        height: 75px;
+        padding: 10px;
+        border: 1px solid black;
+        margin: 8px;
+        background: blue;
+    }
+    #arrastrar {background: green;}
+</style>
+<body>
+    <div id="arrastrar" class="caja" draggable="true">No se esta arrastrando</div>
+    <div id="caja1" class="caja"></div>
+    <!-- <div id="caja2" class="caja"></div> -->
+
+    <script>
+        // /** @type {HTMLCollection} */
+        let c1 = document.getElementById("arrastrar");
+        // /** @type {HTMLCollection} */
+        let c2 = document.getElementById("caja1");
+        // /** @type {HTMLCollection} */
+        // let c3 = document.getElementById("caja2");
+
+        c1.addEventListener("dragstart", () => {
+            // event.dataTransfer.setData("Text", event.target.id);
+            c1.innerText= "Arrastrando...";
+        });
+        c1.addEventListener("dragend", () => {
+            c1.innerText= "No se esta arrastrando";
+        });
+
+        c2.addEventListener("dragenter", () => {
+            c2.style.backgroundColor = "red";
+        });
+
+        c2.addEventListener("dragleave", () => {
+            c2.style.backgroundColor = "blue";
+        });
+
+        c2.addEventListener("dragover", (ev) => {
+            ev.preventDefault();
+        });
+
+        c2.addEventListener("drop", (ev) => {
+            c1.style.display="none";
+            c2.style.backgroundColor = "red";
+        });
+
+
+
+
+
+
+
+
+
+
+
+
+        function dragStart(event) {
+            event.dataTransfer.setData("Text", event.target.id);
+        }
+
+        function dragging(event) {
+            x.style.background = "yellow";
+            y.style.background = "green";
+        }
+
+        function allowDrop(event) {
+            event.preventDefault();
+            event.currentTarget.style.background = "black";
+        }
+
+        function drop(event) {
+            event.preventDefault();
+            const data = event.dataTransfer.getData("Text");
+            event.target.appendChild(document.getElementById(data));
+            x.style.background = "purple";
+            y[0].style.background = "pink";
+            y[1].style.background = "pink";
+        }
+    </script>
+
+</body>
+</html>

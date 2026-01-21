@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .seleccion {
+            color: white;
+            background-color: black;
+        }
+        .importante {
+            font-weight: bolder;
+            font-family: sans-serif;
+            color: lightcoral;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="importante">Pagina de prueba</h1>
+
+    <p data-titulo="Cancion del pirata" data-autor-principal="Espronceda" data-editorial="Anaya">0 Con 10 cañones por banda, viento en popa a toda vela...</p>
+    <p data-titulo="Cancion del pirata" data-autor-principal="Espronceda" data-editorial="Anaya">1 Con 10 cañones por banda, viento en popa a toda vela...</p>
+    <p data-titulo="Cancion del pirata" data-autor-principal="Espronceda" data-editorial="Anaya">2 Con 10 cañones por banda, viento en popa a toda vela...</p>
+
+
+    <script>
+        
+        let clave = "visitas";
+
+        if (localStorage.getItem(clave)==null) {
+            localStorage.setItem(clave, 0)
+        }
+        localStorage.setItem(clave,Number(localStorage.getItem(clave))+1)
+        
+        console.log(localStorage.getItem(clave));
+        
+    </script>
+    <!-- <script>
+        
+        let clave = "visitas";
+
+        if (sessionStorage.getItem(clave)==null) {
+            sessionStorage.setItem(clave, 0)
+        }
+        sessionStorage.setItem(clave,Number(sessionStorage.getItem(clave))+1)
+        console.log(sessionStorage.getItem(clave));
+        
+    </script> -->
+
+    <!-- <script>
+        let fechaExpiracion = new Date();
+        fechaExpiracion.setTime(fechaExpiracion.getTime()+(30*24*60*60*1000));
+
+        if (document.cookie.length==0) {
+            let textoCookie = `visitas=0; expires=${fechaExpiracion.toUTCString()}`;
+            document.cookie = textoCookie;
+
+            console.log(document.cookie);
+        }
+        else {
+            let nombreCookie, valorCookie;
+            let aVisitas;
+            const aCookies = document.cookie.split("; ");
+            for (const cookie of aCookies)
+            {
+                let actual = cookie.split("=");
+                if (actual[0] == "visitas") {aVisitas = actual; break;}
+            }
+            aVisitas[1]++;
+            let cVisitas = aVisitas.join("=");
+
+            document.cookie = `${cVisitas}; expires=${fechaExpiracion.toUTCString()}`;
+            console.log(document.cookie);
+        }
+    </script> -->
+
+    <!-- <script>
+        let fechaExpiracion = new Date();
+        fechaExpiracion.setTime(fechaExpiracion.getTime()+(30*24*60*60*1000))
+
+        if (document.cookie.length==0) {
+            document.cookie = `visitas=0; expires=${fechaExpiracion.toUTCString()}`;
+            console.log(document.cookie.length);
+        } else {
+            let nombreCookie, valorCookie;
+            const aCookies = document.cookie.split("; ");
+            for (const cookie of aCookies) {
+                [nombreCookie, valorCookie] = cookie.split("=")
+                if (nombreCookie == "visitas") break;
+            }
+    
+            document.cookie = `visitas=${++valorCookie}; expires=${fechaExpiracion.toUTCString()}`;
+            console.log(document.cookie);
+
+        }
+        
+
+    </script> -->
+        
+
+    <!-- <script>
+        // document.cookie = "usuario=Pedro";
+        console.log(document.cookie == "");
+        document.cookie == "" ? document.cookie = "visitas=0" : null;
+        console.log(document.cookie == "");
+        
+        i
+        console.log(document.cookie);
+        let aVisitas = document.cookie.split("=");
+
+        if (!aVisitas=="visitas") {
+            document.cookie = "visitas=1";
+        }
+
+        aVisitas[1]++;
+        cVisitas = aVisitas.join("=");
+        document.cookie = aVisitas;
+        console.log(document.cookie);
+        console.log(visitas);
+        // console.log(document.cookie);
+    </script> -->
+
+    <!-- <script>
+        setTimeout(() => clearInterval(t1), 9000);
+        t1 = setInterval(()=>alert("alerta"), 3000)
+    </script> -->
+
+
+    <!-- <script>
+        let parrafos = document.querySelectorAll("p");
+        
+        console.log(parrafos.length);
+
+        document.body.removeChild(document.body.children[1]);
+
+        console.log(parrafos.length);
+        
+    </script> -->
+
+    <!-- <script>
+        let myp1 = document.getElementsByTagName("p")[0];
+        // console.log(myp1.dataset.autorPrincipal);
+        console.log(myp1.dataset.titulo);
+        myp1.dataset.titulo = "Baile del pirata";
+        console.log(myp1.dataset.titulo);
+        
+    </script> -->
+
+    <!-- <script>
+        let myh1 = document.getElementsByTagName("h1")[0];
+
+        myh1.classList.add("seleccion");
+
+        myh1.classList.remove("importante");
+
+        myh1.classList.toggle("seleccion", true) // = add
+        myh1.classList.toggle("importante", false) // = remove
+
+        console.log(myh1.classList.contains("importante"));
+
+        myh1.classList.replace("seleccion", "importante")
+
+        // console.log(myh1.getAttribute("class"));
+        console.log(myh1.classList);
+        console.log(myh1.classList.length);
+        
+    </script> -->
+    
+</body>
+</html>
